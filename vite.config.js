@@ -8,7 +8,7 @@ export default defineConfig({
     proxy: {
       '/api': {
       //  target: 'http://localhost:5000',
-       target: 'https://synora-bk-production-71ef.up.railway.app',
+       target: 'https://synora-bk-production-561e.up.railway.app',
         changeOrigin: true,
         secure: false,
       }
