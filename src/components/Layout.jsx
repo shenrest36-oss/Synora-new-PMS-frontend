@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
     { name: 'Reports', path: '/reports', icon: PieChart, roles: ['admin', 'front_office', 'cashier'], permission: 'reports.view' },
     { name: 'Administration', path: '/administration', icon: ShieldCheck, permission: 'users.view' },
     { name: 'Pos View', href: 'https://synora-pos-front-production.up.railway.app', icon: Briefcase, external: true, roles: ['admin', 'front_office', 'cashier'], permission: 'reservations.view' },
-    { name: 'Inventory', href: 'https://synora-inv-frontend-production.up.railway.app', icon: Briefcase, external: true, roles: ['admin', 'front_office', 'cashier'], permission: 'reservations.view' },
+    { name: 'Inventory', href: 'https://synora-new-inv-front-production.up.railway.app', icon: Briefcase, external: true, roles: ['admin', 'front_office', 'cashier'], permission: 'reservations.view' },
 
   ];
 
