@@ -3,6 +3,7 @@ import { fetchRooms, updateRoom, fetchRoomTypes } from '../api/rooms';
 import { fetchFloors } from '../api/floors';
 import RoomForm from '../components/RoomForm/RoomForm';
 import FloorForm from '../components/FloorForm/FloorForm';
+import RoomTypeForm from '../components/RoomTypeForm/RoomTypeForm';
 import { 
   Hotel, 
   Plus, 
@@ -55,7 +56,7 @@ export default function Rooms() {
 
   // Toggle Forms / Panel type
   const [showAddForm, setShowAddForm] = useState(false);
-  const [creationTab, setCreationTab] = useState('room'); // 'room' or 'floor'
+  const [creationTab, setCreationTab] = useState('room'); // 'room', 'floor', or 'roomtype'
 
   const loadData = async () => {
     setLoading(true);
@@ -144,6 +145,12 @@ export default function Rooms() {
     setShowAddForm(false);
     loadData();
     alert('Floor created successfully!');
+  };
+
+  const handleRoomTypeCreated = async () => {
+    setShowAddForm(false);
+    await loadData();
+    alert('Room type created successfully!');
   };
 
   return (
@@ -281,6 +288,15 @@ export default function Rooms() {
                 </button>
                 <button
                   type="button"
+                  onClick={() => setCreationTab('roomtype')}
+                  className={`flex-1 py-1.5 font-semibold rounded-lg transition-all ${
+                    creationTab === 'roomtype' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  Room Type
+                </button>
+                <button
+                  type="button"
                   onClick={() => setCreationTab('floor')}
                   className={`flex-1 py-1.5 font-semibold rounded-lg transition-all ${
                     creationTab === 'floor' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-slate-200'
@@ -292,6 +308,8 @@ export default function Rooms() {
 
               {creationTab === 'room' ? (
                 <RoomForm onCreated={handleRoomCreated} />
+              ) : creationTab === 'roomtype' ? (
+                <RoomTypeForm onCreated={handleRoomTypeCreated} />
               ) : (
                 <FloorForm onCreated={handleFloorCreated} />
               )}

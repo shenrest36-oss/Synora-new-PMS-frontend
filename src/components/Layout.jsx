@@ -64,9 +64,9 @@ const Layout = ({ children }) => {
   return (
     <div className="flex h-screen bg-slate-950 text-slate-100 overflow-hidden">
       {/* Desktop Sidebar */}
-      <aside className="no-print print:hidden w-64 glass border-r border-slate-800 hidden lg:flex flex-col justify-between z-10">
-        <div>
-          <div className="p-6 flex items-center gap-3 border-b border-slate-800/60">
+      <aside className="no-print print:hidden w-64 glass border-r border-slate-800 hidden lg:flex flex-col justify-between z-10 min-h-0 overflow-hidden">
+        <div className="flex flex-col min-h-0 flex-1">
+          <div className="p-6 flex items-center gap-3 border-b border-slate-800/60 flex-shrink-0">
             <div className="p-2 bg-amber-500/10 rounded-xl text-amber-500 border border-amber-500/20">
               <Hotel size={24} />
             </div>
@@ -75,7 +75,7 @@ const Layout = ({ children }) => {
               <p className="text-[10px] text-slate-400 font-medium tracking-widest uppercase">Property Management</p>
             </div>
           </div>
-          <nav className="p-4 space-y-1.5">
+          <nav className="p-4 space-y-1.5 flex-1 overflow-y-auto min-h-0">
             {menuItems
               .filter(item => user && (!item.roles || item.roles.includes(user.role)) && hasPermission(item.permission))
               .map(item => {
@@ -110,7 +110,7 @@ const Layout = ({ children }) => {
               })}
           </nav>
         </div>
-        <div className="p-4 border-t border-slate-800/60 space-y-4">
+        <div className="p-4 border-t border-slate-800/60 space-y-4 flex-shrink-0">
           {user && (
             <div className="flex items-center gap-3 px-2 py-1">
               <div className="h-10 w-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300">
@@ -135,9 +135,9 @@ const Layout = ({ children }) => {
       {mobileMenuOpen && (
         <div className="no-print print:hidden lg:hidden fixed inset-0 z-50 flex">
           <div onClick={() => setMobileMenuOpen(false)} className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm transition-opacity duration-300" />
-          <aside className="relative w-64 bg-slate-950 border-r border-slate-850 h-full flex flex-col justify-between p-4 z-10 animate-slideIn">
-            <div>
-              <div className="pb-6 mb-4 flex items-center justify-between border-b border-slate-850">
+          <aside className="relative w-64 bg-slate-950 border-r border-slate-850 h-full flex flex-col justify-between p-4 z-10 animate-slideIn overflow-hidden">
+            <div className="flex flex-col min-h-0 flex-1">
+              <div className="pb-6 mb-4 flex items-center justify-between border-b border-slate-850 flex-shrink-0">
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-amber-500/10 rounded-xl text-amber-500 border border-amber-500/20"><Hotel size={20} /></div>
                   <div>
@@ -147,7 +147,7 @@ const Layout = ({ children }) => {
                 </div>
                 <button onClick={() => setMobileMenuOpen(false)} className="p-1.5 hover:bg-slate-900 border border-transparent hover:border-slate-800 rounded-xl text-slate-400 hover:text-slate-100 transition"><X size={18} /></button>
               </div>
-              <nav className="space-y-1.5">
+              <nav className="space-y-1.5 flex-1 overflow-y-auto min-h-0">
                 {menuItems
                   .filter(item => user && (!item.roles || item.roles.includes(user.role)) && hasPermission(item.permission))
                   .map(item => {
@@ -184,7 +184,7 @@ const Layout = ({ children }) => {
                   })}
               </nav>
             </div>
-            <div className="border-t border-slate-850 pt-4 space-y-4">
+            <div className="border-t border-slate-850 pt-4 space-y-4 flex-shrink-0">
               {user && (
                 <div className="flex items-center gap-3 px-2 py-1">
                   <div className="h-9 w-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400"><User size={18} /></div>

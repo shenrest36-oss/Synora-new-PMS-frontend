@@ -10,6 +10,11 @@ export async function createRoom(payload) {
   return data;
 }
 
+export async function createRoomType(payload) {
+  const { data } = await client.post('/room-types', payload);
+  return data;
+}
+
 export async function updateRoom(id, payload) {
   const { data } = await client.put(`/rooms/${id}`, payload);
   return data;
