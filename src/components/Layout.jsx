@@ -27,7 +27,8 @@ const Layout = ({ children }) => {
     { name: 'Pos View', href: 'https://synora-pos-front-production.up.railway.app', icon: Briefcase, external: true, roles: ['admin', 'front_office', 'cashier'], permission: 'reservations.view' },
     { name: 'Inventory', href: 'https://synora-new-inv-front-production.up.railway.app', icon: Briefcase, external: true, roles: ['admin', 'front_office', 'cashier'], permission: 'reservations.view' },
     { name: 'Banquet', href: 'https://ban-front-productions.up.railway.app', icon: Briefcase, external: true, roles: ['admin', 'front_office', 'cashier'], permission: 'reservations.view' },
-
+ { name: 'Finance', href: ' https://synora-fin-front-production.up.railway.app', icon: Briefcase, external: true, roles: ['admin', 'front_office', 'cashier'], permission: 'reservations.view' },
+   
   ];
 
   const handleLogout = () => {
